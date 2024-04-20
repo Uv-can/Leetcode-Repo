@@ -1,8 +1,8 @@
 # Write your MySQL query statement below
 
-
-select email
-from Person 
-where email is not null
-group by email 
-having count(*) > 1
+select distinct a.email
+from
+(select email,
+count(*) over(partition by email) as counter
+from Person) a
+where a.counter > 1
