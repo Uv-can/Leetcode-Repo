@@ -1,8 +1,6 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
-select distinct a.email
-from
-(select email,
-count(*) over(partition by email) as counter
-from Person) a
-where a.counter > 1
+select email
+from person
+group by email
+having count(*) > 1
