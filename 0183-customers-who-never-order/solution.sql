@@ -1,6 +1,6 @@
-# Write your MySQL query statement 
+-- Write your PostgreSQL query statement below
 
-select a.name as Customers
-from customers a left join orders b
-on a.id = b.customerId
-where b.customerId is Null 
+select name as Customers
+from customers c left join orders o
+on c.id = o.customerid
+where o.customerid is NULL
