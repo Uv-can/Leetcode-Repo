@@ -1,10 +1,10 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
-select a.customer_number from
-(select customer_number, 
-count(*) over(partition by customer_number) as counter
-from Orders order by counter desc limit 1) a
-
-
-
-
+SELECT
+    customer_number
+FROM
+    orders
+GROUP BY customer_number
+ORDER BY COUNT(*) DESC
+LIMIT 1
+;
