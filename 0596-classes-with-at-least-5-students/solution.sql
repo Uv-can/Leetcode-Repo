@@ -1,6 +1,8 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
-select distinct a.class from
-(select class, count(*) over(partition by class) as number
-from Courses ) a
-where a.number >= 5
+select distinct class
+from(
+select class, 
+count(*) over (partition by class) as cnt
+from courses) 
+where cnt >= 5
