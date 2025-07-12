@@ -1,6 +1,6 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
 select *
-from Cinema
+from cinema
 where id%2 <> 0 and description <> 'boring'
 order by rating desc
