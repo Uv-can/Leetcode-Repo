@@ -1,8 +1,6 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
-
-select distinct a.project_id,
-round(avg(b.experience_years) over(partition by a.project_id), 2) as average_years
-from Project a inner join Employee b
-on a.employee_id = b.employee_id 
-
+select p.project_id, round(AVG(experience_years),2) as average_years
+from Project p join Employee e
+on p.employee_id = e.employee_id
+group by p.project_id
