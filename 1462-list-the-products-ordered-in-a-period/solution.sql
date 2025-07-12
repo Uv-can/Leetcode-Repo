@@ -1,8 +1,8 @@
-# Write your MySQL query statement below
-select a.product_name, b.unit
-from Products a left join
-(select distinct product_id, 
-sum(unit) over(partition by product_id) as unit 
-from Orders where month(order_date) = 2 and year(order_date) = 2020) b
-on a.product_id = b.product_id 
-Where b.unit >= 100
+-- Write your PostgreSQL query statement below
+
+select p.product_name, sum(o.unit) as unit
+from products p join orders o
+on p.product_id = o.product_id
+where o.order_date between '2020-02-01' and '2020-02-29'
+group by p.product_name
+having sum(o.unit)>=100
