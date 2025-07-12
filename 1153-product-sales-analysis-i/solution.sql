@@ -1,5 +1,7 @@
-# Write your MySQL query statement below
+/* Write your PL/SQL query statement below */
 
-select b.product_name, a.year, a.price
-from Sales a join Product b
-on a.product_id = b.product_id
+
+select p.product_name, s.year, s.price
+from sales s join product p
+on s.product_id = p.product_id
+
