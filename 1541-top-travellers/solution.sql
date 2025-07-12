@@ -1,7 +1,7 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
-select a.name, SUM(coalesce(b.distance, 0)) as travelled_distance
-from Users a left join 
-Rides b on a.id = b.user_id
-group by a.id
-order by travelled_distance desc, a.name
+select name, SUM(case when r.distance is NULL then 0 else r.distance end) as travelled_distance
+from users u left join rides r
+on u.id = r.user_id
+group by u.id, name
+order by 2 desc, 1
