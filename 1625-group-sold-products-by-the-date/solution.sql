@@ -1,8 +1,5 @@
-# Write your MySQL query statement below
-
-
-select sell_date, count( DISTINCT product ) as num_sold ,
-    
-    GROUP_CONCAT( DISTINCT product order by product ASC separator ',' ) as products
-    
-        FROM Activities GROUP BY sell_date order by sell_date ASC;
+-- Write your PostgreSQL query statement below
+select sell_date, count(distinct product) as num_sold, string_agg(distinct product, ',') as products
+from activities
+group by 1
+order by 1
