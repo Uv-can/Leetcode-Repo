@@ -1,16 +1,13 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
 
+select s.student_id, s.student_name, sub.subject_name, coalesce(exam.attended_exams, 0) as attended_exams
+from students s cross join subjects sub
+Left join (
+    select student_id, subject_name, count(*) as attended_exams
+    from examinations
+    group by student_id, subject_name
+) as exam
+on s.student_id = exam.student_id and sub.subject_name = exam.subject_name
+order by 1,3 
 
-select x.student_id, x.student_name, x.subject_name, SUM(x.cnt) as attended_exams
-from
-(select a.student_id, a.student_name, c.subject_name,
-case when b.subject_name is Null then 0 else 1 end as cnt
-from Students a
-cross join
-Subjects c
-left join
-Examinations b
-on a.student_id = b.student_id and c.subject_name = b.subject_name) x
-group by x.student_id, x.student_name, x.subject_name
-order by 1,3
