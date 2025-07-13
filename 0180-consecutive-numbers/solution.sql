@@ -1,9 +1,9 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
-select distinct a.num as ConsecutiveNums
-from
-(select num,
-lead(num) over() as next,
-lead(num,2) over() as second_next
-from Logs) a
-where a.num = a.next and a.num = a.second_next
+select distinct num as ConsecutiveNums from
+(select id, num,
+lead(num,1) over(order by id) as num2,
+lead(num,2) over(order by id) as num3
+from logs) a
+where a.num = a.num3 and a.num2= a.num3
+
