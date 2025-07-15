@@ -1,10 +1,9 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
-select a.person_name
-from 
+select a.person_name from
 (select person_name,
-SUM(weight) over(order by turn rows between unbounded preceding and current row ) as cum_sum
-from Queue ) a
-where a.cum_sum <= 1000 
-order by a.cum_sum desc limit 1
-
+SUM(weight) over(order by Turn rows between unbounded preceding and current row) as total_weight
+from Queue) a
+where a.total_weight <= 1000
+order by total_weight desc
+limit 1
