@@ -1,9 +1,10 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
 
-select a.name
-from Employee a join 
-(select managerId, count(*) as cnt
-from Employee group by managerID) b
-on a.id = b.managerID
-where b.cnt >= 5
+
+select e.name
+From employee e join
+(select managerid, count(*) as cnt
+from employee group by managerid) m
+on e.id = m.managerid
+where m.cnt >= 5
