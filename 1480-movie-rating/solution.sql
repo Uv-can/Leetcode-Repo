@@ -1,18 +1,18 @@
-# Write your MySQL query statement below
-(select c.name as results from(
-select b.name, count(*) as rating_cnt
-from MovieRating a left join
-Users b on
-a.user_id = b.user_id
-group by b.name
-order by rating_cnt desc, b.name asc limit 1) c)
-UNION all
-(select d.title as results from
-(select b.title,
-round(avg(a.rating) over(partition by a.movie_id ), 2) as avg_rating
-from MovieRating a left join
-Movies b on
-a.movie_id = b.movie_id
-where a.created_at like '2020-02-%') d
-order by d.avg_rating desc, d.title asc limit 1)
+-- Write your PostgreSQL query statement below
+select b.name as results from
+(select u.name,
+dense_rank() over( order by count(m.movie_id) desc, u.name) as rnk
+from MOvierating m join users u
+on m.user_id = u.user_id
+group by m.user_id, u.name) b
+where b.rnk =1
+UNION ALL
+select a.title as results from
+(select u.title,
+dense_rank() over( order by AVG(m.rating) desc, u.title) as rnk
+from MOvierating m join movies u
+on m.movie_id = u.movie_id
+where to_char(m.created_at, 'yyyy-MM') = '2020-02'
+group by u.title) a
+where a.rnk = 1
 
