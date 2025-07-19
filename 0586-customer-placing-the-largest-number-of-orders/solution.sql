@@ -1,10 +1,10 @@
--- Write your PostgreSQL query statement below
+# Write your MySQL query statement below
 
-SELECT
-    customer_number
-FROM
-    orders
-GROUP BY customer_number
-ORDER BY COUNT(*) DESC
-LIMIT 1
-;
+select a.customer_number from
+(select customer_number, 
+rank() over(order by count(distinct order_number) desc) as rnk
+from Orders group by customer_number) a
+where a.rnk = 1
+
+
+
