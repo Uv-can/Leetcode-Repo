@@ -1,11 +1,14 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
-select distinct activity from
-(select activity, 
-dense_rank() over(order by count(*)) as min_cnt,
-dense_rank() over(order by count(*) desc) as max_cnt
-from friends
-group by activity
-) a
-where min_cnt > 1 and max_cnt > 1
 
+
+SELECT activity 
+FROM 
+    (
+    SELECT activity, 
+        RANK () OVER (ORDER BY(COUNT(id))) AS rank_asc,
+        RANK () OVER (ORDER BY(COUNT(id))DESC) AS rank_desc
+    FROM Friends
+    GROUP BY activity
+    )t0
+WHERE rank_asc != 1 AND rank_desc != 1
