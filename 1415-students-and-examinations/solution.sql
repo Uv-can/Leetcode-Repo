@@ -11,3 +11,6 @@ Left join (
 on s.student_id = exam.student_id and sub.subject_name = exam.subject_name
 order by 1,3 
 
+
+
+
