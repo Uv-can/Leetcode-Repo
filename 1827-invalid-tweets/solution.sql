@@ -1,5 +1,5 @@
-# Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 
-select tweet_id 
-from Tweets
+select tweet_id
+from tweets
 where length(content) > 15
