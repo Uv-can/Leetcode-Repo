@@ -1,0 +1,8 @@
+-- Write your PostgreSQL query statement below
+
+select product_id,
+SUM(case when store = 'store1' then price else null end) as store1,
+SUM(case when store = 'store2' then price else null end) as store2,
+SUM(case when store = 'store3' then price else null end) as store3
+from products
+group by product_id
