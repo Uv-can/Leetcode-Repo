@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sync Submissions
-        uses: joshcai/leetcode-sync@v1.7.0 # Check Marketplace for latest version
+        uses: joshcai/leetcode-sync@v1.7 # Check Marketplace for latest version
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
