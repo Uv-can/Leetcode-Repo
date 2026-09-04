@@ -1,0 +1,33 @@
+name: Update Language Chart
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Sync LeetCode"]
+    types:
+      - completed
+  push:
+    paths:
+      - "**/solution.py"
+      - "**/solution.sql"
+      - "scripts/generate_language_chart.py"
+
+permissions:
+  contents: write
+
+jobs:
+  update-language-chart:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate language chart
+        run: python scripts/generate_language_chart.py
+
+      - name: Commit updated chart
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update language breakdown chart
+          file_pattern: README.md assets/language-breakdown.svg
