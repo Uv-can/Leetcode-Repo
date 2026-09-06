@@ -3,10 +3,10 @@
   <desc id="desc">Pie chart showing Python and SQL LeetCode problem totals and percentages.</desc>
   <rect width="680" height="360" rx="16" fill="#F9FAFB" />
   <text x="34" y="44" font-size="24" font-weight="700" fill="#111827">Submission Language Breakdown</text>
-  <text x="34" y="72" font-size="15" fill="#4B5563">295 total solutions</text>
-  <path d="M 180.00 205.00 L 261.22 130.82 A 110.00 110.00 0 0 0 180.00 95.00 Z" fill="#3572A5" /><path d="M 180.00 205.00 L 180.00 95.00 A 110.00 110.00 0 1 0 261.22 130.82 Z" fill="#E38C00" />
+  <text x="34" y="72" font-size="15" fill="#4B5563">302 total solutions</text>
+  <path d="M 180.00 205.00 L 269.92 141.65 A 110.00 110.00 0 0 0 180.00 95.00 Z" fill="#3572A5" /><path d="M 180.00 205.00 L 180.00 95.00 A 110.00 110.00 0 1 0 269.92 141.65 Z" fill="#E38C00" />
   <circle cx="180" cy="205" r="72" fill="#F9FAFB" />
-  <text x="180" y="199" text-anchor="middle" font-size="32" font-weight="700" fill="#111827">295</text>
+  <text x="180" y="199" text-anchor="middle" font-size="32" font-weight="700" fill="#111827">302</text>
   <text x="180" y="227" text-anchor="middle" font-size="15" fill="#4B5563">solutions</text>
-  <rect x="380" y="115" width="18" height="18" rx="3" fill="#3572A5" /><text x="412" y="132" font-size="20" font-weight="600" fill="#111827">Python</text><text x="412" y="156" font-size="16" fill="#4B5563">39 problems (13.2%)</text><rect x="380" y="169" width="18" height="18" rx="3" fill="#E38C00" /><text x="412" y="186" font-size="20" font-weight="600" fill="#111827">SQL</text><text x="412" y="210" font-size="16" fill="#4B5563">256 problems (86.8%)</text>
+  <rect x="380" y="115" width="18" height="18" rx="3" fill="#3572A5" /><text x="412" y="132" font-size="20" font-weight="600" fill="#111827">Python</text><text x="412" y="156" font-size="16" fill="#4B5563">46 problems (15.2%)</text><rect x="380" y="169" width="18" height="18" rx="3" fill="#E38C00" /><text x="412" y="186" font-size="20" font-weight="600" fill="#111827">SQL</text><text x="412" y="210" font-size="16" fill="#4B5563">256 problems (84.8%)</text>
 </svg>
