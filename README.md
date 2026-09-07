@@ -7,6 +7,6 @@ My Leetcode submissions
 
 | Language | Problems | Percentage |
 | --- | ---: | ---: |
-| Python | 46 | 15.2% |
-| SQL | 256 | 84.8% |
-| **Total** | **302** | **100.0%** |
+| Python | 46 | 14.9% |
+| SQL | 262 | 85.1% |
+| **Total** | **308** | **100.0%** |
